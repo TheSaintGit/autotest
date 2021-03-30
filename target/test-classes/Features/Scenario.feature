@@ -4,9 +4,12 @@ Feature: MailChimp
 
   @mytag
 
-  Scenario:Sign up
-    Given I want to add my email.
-    Given I also want to set an username
-    And  I want to set a Password
+  Scenario Outline:Sign up
+    Given I want to add my email "<email>"
+    Given I also want to set an username "<username>"
+    And  I want to set a Password "<password>"
     When I press signup
-    Then The result should be that i see a confirm page.
+    Then The "<result>" mail should be on the confirm page.
+    Examples:
+      | email | username | password | result |
+      | jst@fun.com | jstfun | H4rdP@ssW0rd | jst@fun.com |
