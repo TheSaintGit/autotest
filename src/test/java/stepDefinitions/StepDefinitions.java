@@ -17,7 +17,7 @@ public class StepDefinitions {
 
     @Given("I want to add my email {string}")
     public void i_want_to_add_my_email(String string) {
-        // Write code here that turns the phrase above into concrete actions
+        // Write code here that turns the phrase above into concrete action
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\nv95j\\OneDrive\\Skrivbord\\Selenium\\chromedriver.exe");
 
         driver = new ChromeDriver();
