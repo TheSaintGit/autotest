@@ -13,6 +13,6 @@ Feature: MailChimp
     Examples:
       | email             | username    | password     | result |
       | newuser@test.com  | randUser    | H4rdP@ssW0rd | Didn’t get an email? |
-      | longuser@test.com | randUser100 | H4rdP@ssW0rd | Please check your entry and try again. |
-      | olduser@test.com  | oldUser     | H4rdP@ssW0rd | Please check your entry and try again. |
-      |                   | userName    | H4rdP@ssW0rd | Please check your entry and try again. |
+      | longuser@test.com | randUser100 | H4rdP@ssW0rd | Enter a value less than 100 characters long |
+      | olduser@test.com  | oldUser     | H4rdP@ssW0rd | Another user with this username already exists. Maybe it's your evil twin. Spooky.|
+      |                   | nameUser    | H4rdP@ssW0rd | Please enter a value |

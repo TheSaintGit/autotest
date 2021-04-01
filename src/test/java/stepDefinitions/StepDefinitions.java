@@ -27,25 +27,21 @@ public class StepDefinitions {
         WebElement email = driver.findElement(By.id("email"));
         email.sendKeys(string);
     }
+
     @Given("I also want to set an username {string}")
     public void i_also_want_to_set_an_username(String string) {
         // Write code here that turns the phrase above into concrete actions
         if (string.equals("randUser")) {
             WebElement username = driver.findElement(By.id("new_username"));
             username.sendKeys(RandomStringUtils.randomAlphabetic(12));
-
-        }
-        else if (string.equals("randUser100")){
+        } else if (string.equals("randUser100")) {
             WebElement username = driver.findElement(By.id("new_username"));
             username.sendKeys(RandomStringUtils.randomAlphabetic(110));
-        }
-        else if (string.equals("oldUser")){
-
+        } else if (string.equals("oldUser")) {
             WebElement username = driver.findElement(By.id("new_username"));
-            String nameUser = (RandomStringUtils.randomAlphabetic(12));
-            username.sendKeys(nameUser);
-        }
-        else {
+            // String nameUser = (RandomStringUtils.randomAlphabetic(12));
+            username.sendKeys("oldUser");
+        } else {
             WebElement username = driver.findElement(By.id("new_username"));
             username.sendKeys(RandomStringUtils.randomAlphabetic(12));
         }
@@ -65,22 +61,24 @@ public class StepDefinitions {
         // Write code here that turns the phrase above into concrete actions
         WebElement signUp = driver.findElement(By.cssSelector("#create-account"));
         signUp.click();
-
     }
 
     @Then("When user is {string} then the {string} should be.")
     public void when_user_is_then_the_should_be(String string, String string2) {
         // Write code here that turns the phrase above into concrete actions
-        if (string.equals("randUser")){
+        if (string.equals("randUser")) {
             WebElement firstResult = driver.findElement(By.cssSelector("#signup-content > div > div > div > span > label"));
             assertEquals(string2, firstResult.getText());
-        }
-       else{
-            WebElement secResult = driver.findElement(By.cssSelector("#av-flash-errors > ul"));
+        } else if (string.equals("randUser100")) {
+            WebElement firstResult = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span"));
+            assertEquals(string2, firstResult.getText());
+        } else if (string.equals("oldUser")) {
+            WebElement firstResult = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span"));
+            assertEquals(string2, firstResult.getText());
+        } else {
+            WebElement secResult = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(1) > div > span"));
             assertEquals(string2, secResult.getText());
         }
         driver.quit();
     }
-
-
 }
