@@ -1,6 +1,6 @@
 
 Feature: MailChimp
-  Try to start a new account on Mailchimp.
+ I want to start a new account on Mailchimp.
 
   @mytag
 
