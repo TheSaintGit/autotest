@@ -63,7 +63,7 @@ public class StepDefinitions {
                 assertEquals(string2, firstResult.getText());
             }
             case "oldUser" -> {
-                WebElement firstResult = driver.findElement(By.cssSelector("#signup-form > fieldset > div:nth-child(2) > div > span"));
+                WebElement firstResult = driver.findElement(By.cssSelector(".invalid-error"));
                 assertEquals(string2, firstResult.getText());
             }
             default -> {
